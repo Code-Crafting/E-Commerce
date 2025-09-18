@@ -1,9 +1,11 @@
-import "./App.css";
+import Navbar from "./assets/Components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 }
 
 export default App;

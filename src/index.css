@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@layer components {
+  .con {
+    @apply max-w-[1400px] mx-auto;
+  }
+}
+
+@theme {
+  --shadow-navbar: rgba(0, 0, 0, 0.24) 0px 2px 8px;
+}
