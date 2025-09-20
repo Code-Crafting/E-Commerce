@@ -7,5 +7,7 @@
 }
 
 @theme {
+  --color-primary: #f42c37;
+
   --shadow-navbar: rgba(0, 0, 0, 0.24) 0px 2px 8px;
 }
