@@ -8,6 +8,13 @@
 
 @theme {
   --color-primary: #f42c37;
+  --color-lightRed: #f9858c;
+  --color-green: #42d17d;
+  --color-lightGreen: #68da97;
+  --color-blue: rgb(19 118 244);
+  --color-lightBlue: #74aff8;
+  --color-yellow: #fdc733;
+  --color-lightYellow: #fede86;
 
   --shadow-navbar: rgba(0, 0, 0, 0.24) 0px 2px 8px;
 }

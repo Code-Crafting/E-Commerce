@@ -43,7 +43,7 @@ function Hero() {
   ];
 
   return (
-    <div className="con pt-24  ">
+    <div className="con pt-24 z-0 ">
       <div className="w-full min-h-[600px] flex justify-center items-center  bg-[linear-gradient(90deg,rgba(219,222,227,1)_0%,rgba(243,244,246,1)_100%)] rounded-4xl">
         <div className="container px-24 h-full">
           <Slider {...settings}>
@@ -52,7 +52,7 @@ function Hero() {
                 <div key={el.id} className="">
                   <div className="relative px-2 flex justify-between h-[500px]">
                     <div className="h-full flex flex-col gap-2 font-bold justify-center">
-                      <p className="text-2xl">Beats Duo</p>
+                      <p className="text-2xl">Beats Solo</p>
                       <h1 className="text-7xl">{el.type}</h1>
                       <h1 className="text-[150px] text-white uppercase">
                         {el.title}
