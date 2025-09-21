@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 function Navbar() {
   const menuLinks = [
     { id: 1, menuName: "Home" },
@@ -15,9 +17,7 @@ function Navbar() {
       <div className="con flex justify-between items-center py-4">
         {/* Right */}
         <div className="flex gap-10 items-center tracking-wider">
-          <h1 className="text-red-500 font-medium text-3xl hover:cursor-pointer">
-            ESHOP
-          </h1>
+          <Logo />
           <ul className="text-gray-500 font-medium flex gap-10">
             {/* menu links */}
             {menuLinks.map((el) => (
