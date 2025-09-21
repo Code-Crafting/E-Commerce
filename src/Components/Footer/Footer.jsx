@@ -1,5 +1,5 @@
 import FooterLinks from "./FooterLinks";
-import Logo from "./Logo";
+import Logo from "../Logo";
 
 function Footer() {
   const webLinks = [
@@ -51,7 +51,7 @@ function Footer() {
 
         {addSecLinks.map((el, i) => {
           return (
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center" key={i}>
               <div className="text-xl">{el.img}</div>
               <p className="text-lg">{el.details}</p>
             </div>

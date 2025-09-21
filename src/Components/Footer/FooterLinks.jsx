@@ -4,7 +4,10 @@ function FooterLinks({ title, links }) {
       <h1 className="text-xl font-bold">{title}</h1>
       {links.map((el, i) => {
         return (
-          <p className="text-gray-600 hover:text-black hover:cursor-pointer">
+          <p
+            className="text-gray-600 hover:text-black hover:cursor-pointer"
+            key={i}
+          >
             {el}
           </p>
         );

@@ -1,9 +1,9 @@
-import earphone from "../assets/category/earphone.png";
-import gaming from "../assets/category/gaming.png";
-import macbook from "../assets/category/macbook.png";
-import speaker from "../assets/category/speaker.png";
-import vr from "../assets/category/vr.png";
-import watch from "../assets/category/watch.png";
+import earphone from "../../assets/category/earphone.png";
+import gaming from "../../assets/category/gaming.png";
+import macbook from "../../assets/category/macbook.png";
+import speaker from "../../assets/category/speaker.png";
+import vr from "../../assets/category/vr.png";
+import watch from "../../assets/category/watch.png";
 
 function Category() {
   return (

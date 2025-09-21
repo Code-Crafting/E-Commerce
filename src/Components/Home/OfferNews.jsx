@@ -1,4 +1,4 @@
-import greenWatch from "../assets/category/watch2.png";
+import greenWatch from "../../assets/category/watch2.png";
 
 function OfferNews() {
   return (

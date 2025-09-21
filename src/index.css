@@ -18,3 +18,7 @@
 
   --shadow-navbar: rgba(0, 0, 0, 0.24) 0px 2px 8px;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,11 +1,12 @@
+import { Link } from "react-router";
 import Logo from "./Logo";
 
 function Navbar() {
   const menuLinks = [
-    { id: 1, menuName: "Home" },
-    { id: 2, menuName: "Shop" },
-    { id: 3, menuName: "About" },
-    { id: 4, menuName: "Blogs" },
+    { id: 1, menuName: "Home", link: "/" },
+    { id: 2, menuName: "Shop", link: "/products" },
+    { id: 3, menuName: "About", link: "/" },
+    { id: 4, menuName: "Blogs", link: "/" },
   ];
   const dropdown = [
     { id: 1, list: "Trading Products" },
@@ -21,12 +22,11 @@ function Navbar() {
           <ul className="text-gray-500 font-medium flex gap-10">
             {/* menu links */}
             {menuLinks.map((el) => (
-              <li
-                className="hover:cursor-pointer hover:text-gray-400"
-                key={el.id}
-              >
-                {el.menuName}
-              </li>
+              <Link to={el.link} key={el.id}>
+                <li className="hover:cursor-pointer hover:text-gray-400">
+                  {el.menuName}
+                </li>
+              </Link>
             ))}
 
             {/* dropdown */}
@@ -37,8 +37,11 @@ function Navbar() {
               </li>
 
               <div className="z-[9999] absolute hidden group-hover:block bg-white w-[200px] px-2 py-2 rounded-sm shadow-navbar">
-                {dropdown.map((el) => (
-                  <div className="px-4 py-2 hover:bg-red-200 hover:cursor-pointer hover:text-white transition-all duration-200 rounded-sm">
+                {dropdown.map((el, i) => (
+                  <div
+                    key={i}
+                    className="px-4 py-2 hover:bg-red-200 hover:cursor-pointer hover:text-white transition-all duration-200 rounded-sm"
+                  >
                     {el.list}
                   </div>
                 ))}

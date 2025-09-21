@@ -1,9 +1,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import laptop from "../assets/category/macbook.png";
-import vr from "../assets/category/vr.png";
-import headphone from "../assets/hero/headphone.png";
+import laptop from "../../assets/category/macbook.png";
+import vr from "../../assets/category/vr.png";
+import headphone from "../../assets/hero/headphone.png";
 
 function Hero() {
   const settings = {
