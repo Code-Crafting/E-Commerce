@@ -1,13 +1,11 @@
-import Category from "./Components/Category";
-import Hero from "./Components/Hero";
+import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Category />
+      <Home />
     </>
   );
 }
