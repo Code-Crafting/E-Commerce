@@ -11,7 +11,7 @@ function Navbar() {
     { id: 3, list: "Top Rated" },
   ];
   return (
-    <div className="fixed w-full shadow-navbar">
+    <div className="fixed w-full shadow-navbar bg-white z-[9999]">
       <div className="con flex justify-between items-center py-4">
         {/* Right */}
         <div className="flex gap-10 items-center tracking-wider">
