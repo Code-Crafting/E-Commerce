@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import CategoryListShrimmer from "../Shrimmer/CategoryListShrimmer";
+import ProductsShrimmer from "../Shrimmer/ProductsShrimmer";
 
 function Product() {
   const [categoryName, setCategoryName] = useState("products");
@@ -54,7 +56,19 @@ function Product() {
             </div>
           ))
         ) : (
-          <></>
+          <>
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+            <CategoryListShrimmer />
+          </>
         )}
       </div>
 
@@ -89,7 +103,23 @@ function Product() {
             );
           })
         ) : (
-          <></>
+          <>
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+            <ProductsShrimmer />
+          </>
         )}
       </div>
     </div>
