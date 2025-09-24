@@ -5,6 +5,8 @@ import Navbar from "./Components/Navbar";
 import Product from "./Components/Product/Porduct";
 import AddToCart from "./Components/AddToCart/AddToCart";
 import { useState } from "react";
+import { Bounce, ToastContainer } from "react-toastify";
+import { createPortal } from "react-dom";
 
 function App() {
   const [itemDetails, setItemsDetails] = useState(
@@ -19,7 +21,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/products"
-          element={<Product setItemsDetails={setItemsDetails} />}
+          element={
+            <Product
+              setItemsDetails={setItemsDetails}
+              itemDetails={itemDetails}
+            />
+          }
         />
         <Route
           path="/cart"

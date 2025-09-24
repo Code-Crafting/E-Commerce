@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import CategoryListShrimmer from "../Shrimmer/CategoryListShrimmer";
 import ProductsShrimmer from "../Shrimmer/ProductsShrimmer";
 import { addCommaToINR, convertToINR } from "../../functions";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import { createPortal } from "react-dom";
 
-function Product({ setItemsDetails }) {
+function Product({ setItemsDetails, itemDetails }) {
   const [categoryName, setCategoryName] = useState("products");
   const [productsData, setProductsData] = useState(null);
   const [categoryList, setCategoryList] = useState(null);
@@ -27,6 +29,43 @@ function Product({ setItemsDetails }) {
       .then((res) => res.json())
       .then((data) => setProductsData(data.products));
   }, [categoryName]);
+
+  const handleValidationAndToast = ({ id, title, brand, images, price }) => {
+    const isAdded = itemDetails.some((el) => el.id === id);
+
+    // Add items to cart
+    setItemsDetails((prev) =>
+      isAdded
+        ? prev
+        : [
+            ...prev,
+            {
+              id,
+              title,
+              brand,
+              images: images[0],
+              price,
+            },
+          ]
+    );
+
+    // Pop Up
+    const toastStyle = {
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    };
+    if (isAdded) {
+      toast.error("Item already added to cart", toastStyle);
+    } else {
+      toast.success("Item added to cart", toastStyle);
+    }
+  };
 
   return (
     <div className="con min-h-dvh py-24">
@@ -102,22 +141,7 @@ function Product({ setItemsDetails }) {
 
                 <div
                   className="w-max mt-2 ml-2 px-4 py-2 bg-primary text-white font-semibold text-sm rounded-full hover:cursor-pointer hover:scale-105 duration-200"
-                  onClick={() =>
-                    setItemsDetails((prev) =>
-                      prev.some((el) => el.id === id)
-                        ? prev
-                        : [
-                            ...prev,
-                            {
-                              id,
-                              title,
-                              brand,
-                              images: images[0],
-                              price,
-                            },
-                          ]
-                    )
-                  }
+                  onClick={() => handleValidationAndToast(el)}
                 >
                   Add to Cart
                 </div>
@@ -144,6 +168,24 @@ function Product({ setItemsDetails }) {
           </>
         )}
       </div>
+
+      {/* toast */}
+      {createPortal(
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover={false}
+          theme="light"
+          transition={Bounce}
+        />,
+        document.getElementById("portal")
+      )}
     </div>
   );
 }
