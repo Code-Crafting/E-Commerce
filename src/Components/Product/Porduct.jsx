@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import CategoryListShrimmer from "../Shrimmer/CategoryListShrimmer";
 import ProductsShrimmer from "../Shrimmer/ProductsShrimmer";
+import { convertToINR } from "../../functions";
 
-function Product() {
+function Product({ setItemsDetails }) {
   const [categoryName, setCategoryName] = useState("products");
   const [productsData, setProductsData] = useState(null);
   const [categoryList, setCategoryList] = useState(null);
@@ -81,6 +82,7 @@ function Product() {
               <div
                 className="w-full  flex flex-col justify-between pb-4 rounded-xl overflow-hidden border border-gray-400"
                 key={id}
+                id={id}
               >
                 <div className="bg-gray-200">
                   <img src={images[0]} alt="productImg" />
@@ -89,14 +91,32 @@ function Product() {
                 <div className="mt-4 flex flex-col gap-2 px-2 justify-between">
                   <h1 className="text-xl font-semibold">{title}</h1>
                   <p className="text-lg">{brand}</p>
-                  <p className="text-lg">₹{Math.floor(price * 85)}</p>
+                  <p className="text-lg">₹{convertToINR(price)}</p>
                   <div className="flex gap-2 items-center">
                     <i class="fa-solid fa-star text-yellow text-xl text-shadow-md/30"></i>
                     <p className="text-lg">{rating}/5</p>
                   </div>
                 </div>
 
-                <div className="w-max mt-2 ml-2 px-4 py-2 bg-primary text-white font-semibold text-sm rounded-full hover:cursor-pointer hover:scale-105 duration-200">
+                <div
+                  className="w-max mt-2 ml-2 px-4 py-2 bg-primary text-white font-semibold text-sm rounded-full hover:cursor-pointer hover:scale-105 duration-200"
+                  onClick={() =>
+                    setItemsDetails((prev) =>
+                      prev.some((el) => el.id === id)
+                        ? prev
+                        : [
+                            ...prev,
+                            {
+                              id,
+                              title,
+                              brand,
+                              images: images[0],
+                              price,
+                            },
+                          ]
+                    )
+                  }
+                >
                   Add to Cart
                 </div>
               </div>

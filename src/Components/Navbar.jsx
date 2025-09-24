@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import Logo from "./Logo";
 
-function Navbar() {
+function Navbar({ cartValue }) {
   const menuLinks = [
     { id: 1, menuName: "Home", link: "/" },
     { id: 2, menuName: "Shop", link: "/products" },
@@ -14,8 +14,8 @@ function Navbar() {
     { id: 3, list: "Top Rated" },
   ];
   return (
-    <div className="fixed w-full shadow-navbar bg-white z-[9999]">
-      <div className="con flex justify-between items-center py-4">
+    <div className="fixed w-full shadow-navbar bg-white z-[100]">
+      <div className="con flex justify-between items-center py-4 relative">
         {/* Right */}
         <div className="flex gap-10 items-center tracking-wider">
           <Logo />
@@ -61,12 +61,12 @@ function Navbar() {
             <i class="fa-solid fa-magnifying-glass hover:cursor-pointer group-hover:text-red-500"></i>
           </div>
 
-          <div className="relative">
+          <Link to={`/cart`} className="relative">
             <i class="fa-solid fa-cart-shopping hover:cursor-pointer"></i>
             <div className="absolute -top-2 -right-2 bg-red-500 w-[17px] h-[17px] grid place-items-center text-[12px] rounded-full text-white">
-              4
+              {cartValue}
             </div>
-          </div>
+          </Link>
           <i class="fa-solid fa-sun hover:cursor-pointer"></i>
           <i class="fa-solid fa-moon hover:cursor-pointer"></i>
         </div>
