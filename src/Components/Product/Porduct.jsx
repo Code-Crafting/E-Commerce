@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CategoryListShrimmer from "../Shrimmer/CategoryListShrimmer";
 import ProductsShrimmer from "../Shrimmer/ProductsShrimmer";
-import { convertToINR } from "../../functions";
+import { addCommaToINR, convertToINR } from "../../functions";
 
 function Product({ setItemsDetails }) {
   const [categoryName, setCategoryName] = useState("products");
@@ -91,7 +91,9 @@ function Product({ setItemsDetails }) {
                 <div className="mt-4 flex flex-col gap-2 px-2 justify-between">
                   <h1 className="text-xl font-semibold">{title}</h1>
                   <p className="text-lg">{brand}</p>
-                  <p className="text-lg">₹{convertToINR(price)}</p>
+                  <p className="text-lg">
+                    ₹{addCommaToINR(convertToINR(price))}
+                  </p>
                   <div className="flex gap-2 items-center">
                     <i class="fa-solid fa-star text-yellow text-xl text-shadow-md/30"></i>
                     <p className="text-lg">{rating}/5</p>

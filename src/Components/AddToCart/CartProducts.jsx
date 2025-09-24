@@ -1,4 +1,4 @@
-import { convertToINR } from "../../functions";
+import { addCommaToINR, convertToINR } from "../../functions";
 // import emptycart from "../../assets/emptyCart.gif";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
@@ -6,6 +6,7 @@ function CartProducts({ itemDetails, setItemsDetails }) {
   const calculateTotal = (details) => {
     return details.reduce((acc, el) => acc + Number(convertToINR(el.price)), 0);
   };
+
   return itemDetails.length ? (
     <>
       {itemDetails.map((el) => {
@@ -26,7 +27,9 @@ function CartProducts({ itemDetails, setItemsDetails }) {
             </div>
             {/* price */}
             <div className="flex gap-4 items-center">
-              <h1 className="text-xl font-semibold">₹{convertToINR(price)}</h1>
+              <h1 className="text-xl font-semibold">
+                ₹{addCommaToINR(convertToINR(price))}
+              </h1>
               <i
                 className="fa-solid fa-trash text-primary hover:cursor-pointer"
                 onClick={() => {
@@ -49,7 +52,7 @@ function CartProducts({ itemDetails, setItemsDetails }) {
         <h1 className="text-2xl">
           Total -
           <span className="font-semibold pl-2">
-            ₹{calculateTotal(itemDetails)}
+            ₹{addCommaToINR(calculateTotal(itemDetails))}
           </span>
         </h1>
       </div>
