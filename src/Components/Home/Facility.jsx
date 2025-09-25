@@ -1,27 +1,27 @@
-function Facitily() {
+function Facitily({ isDark }) {
   const data = [
     {
       id: 1,
-      img: <i class="fa-solid fa-car-side"></i>,
+      img: <i className="fa-solid fa-car-side"></i>,
       title: "Free Shipping",
       subTitle: "Free Shipping On All Order",
     },
     {
       id: 2,
-      img: <i class="fa-solid fa-circle-check"></i>,
+      img: <i className="fa-solid fa-circle-check"></i>,
       title: "Safe Money",
       subTitle: "30 Days Money Back",
     },
     {
       id: 3,
-      img: <i class="fa-solid fa-wallet"></i>,
+      img: <i className="fa-solid fa-wallet"></i>,
       title: "Secure Payment",
       subTitle: "All Payment Secure",
     },
 
     {
       id: 4,
-      img: <i class="fa-solid fa-headphones"></i>,
+      img: <i className="fa-solid fa-headphones"></i>,
       title: "Online Support 24/7",
       subTitle: "Technical Support 24/7",
     },
@@ -33,7 +33,13 @@ function Facitily() {
         <div key={el.id} className="flex gap-4 items-center">
           <div className="text-primary text-5xl">{el.img}</div>
           <div>
-            <h1 className="text-xl font-bold">{el.title}</h1>
+            <h1
+              className={`text-xl font-bold ${
+                isDark ? "text-white" : "text-black"
+              }`}
+            >
+              {el.title}
+            </h1>
             <p className="text-gray-600">{el.subTitle}</p>
           </div>
         </div>

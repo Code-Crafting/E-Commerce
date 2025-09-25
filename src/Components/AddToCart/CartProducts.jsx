@@ -2,7 +2,7 @@ import { addCommaToINR, convertToINR } from "../../functions";
 // import emptycart from "../../assets/emptyCart.gif";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-function CartProducts({ itemDetails, setItemsDetails }) {
+function CartProducts({ itemDetails, setItemsDetails, isDark }) {
   const calculateTotal = (details) => {
     return details.reduce((acc, el) => acc + Number(convertToINR(el.price)), 0);
   };
@@ -21,13 +21,23 @@ function CartProducts({ itemDetails, setItemsDetails }) {
                 className="w-[80px] bg-gray-200 rounded-2xl"
               />
               <div>
-                <h1 className="text-black text-lg">{title}</h1>
+                <h1
+                  className={`${
+                    isDark ? "text-gray-200" : "text-black"
+                  } text-lg`}
+                >
+                  {title}
+                </h1>
                 <p className="text-gray-400 text-sm">{brand}</p>
               </div>
             </div>
             {/* price */}
             <div className="flex gap-4 items-center">
-              <h1 className="text-xl font-semibold">
+              <h1
+                className={`text-xl font-semibold ${
+                  isDark ? "text-gray-300" : "text-black"
+                }`}
+              >
                 ₹{addCommaToINR(convertToINR(price))}
               </h1>
               <i
@@ -47,9 +57,9 @@ function CartProducts({ itemDetails, setItemsDetails }) {
           </div>
         );
       })}
-      <hr className="text-gray-400 my-4" />
+      <hr className="text-gray-500 my-4" />
       <div className="text-right">
-        <h1 className="text-2xl">
+        <h1 className={`text-2xl ${isDark ? "text-gray-300" : "text-black"}`}>
           Total -
           <span className="font-semibold pl-2">
             ₹{addCommaToINR(calculateTotal(itemDetails))}

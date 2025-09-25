@@ -4,17 +4,17 @@ import br3 from "../../assets/brand/br-3.png";
 import br4 from "../../assets/brand/br-4.png";
 import br5 from "../../assets/brand/br-5.png";
 
-function Brand() {
+function Brand({ isDark }) {
   const brands = [br1, br2, br3, br4, br5];
   return (
-    <div className="bg-gray-200 py-8 mt-28">
+    <div className={`${isDark ? "bg-blue-light" : "bg-gray-200"} py-8 mt-28`}>
       <div className="con flex justify-evenly itmes-center">
         {brands.map((el, i) => (
           <img
             src={el}
             key={i}
             alt="brandImg"
-            className="w-[70px] opacity-50"
+            className={`w-[70px] opacity-50 ${isDark ? "invert" : ""}`}
           />
         ))}
       </div>

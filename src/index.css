@@ -16,6 +16,12 @@
   --color-yellow: #fdc733;
   --color-lightYellow: #fede86;
 
+  /* dark */
+  --color-primary-dark: #111827;
+  --color-blue-light: #1d2635;
+  --color-footer: #030712;
+  --color-dropdown-list: #3f1c2a;
+
   --shadow-navbar: rgba(0, 0, 0, 0.24) 0px 2px 8px;
 }
 

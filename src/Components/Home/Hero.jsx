@@ -5,7 +5,7 @@ import laptop from "../../assets/category/macbook.png";
 import vr from "../../assets/category/vr.png";
 import headphone from "../../assets/hero/headphone.png";
 
-function Hero() {
+function Hero({ isDark }) {
   const settings = {
     dots: false,
     arrows: false,
@@ -44,7 +44,13 @@ function Hero() {
 
   return (
     <div className="con pt-24 z-0 ">
-      <div className="w-full min-h-[600px] flex justify-center items-center  bg-[linear-gradient(90deg,rgba(219,222,227,1)_0%,rgba(243,244,246,1)_100%)] rounded-4xl">
+      <div
+        className={`w-full min-h-[600px] flex justify-center items-center  ${
+          isDark
+            ? "bg-[linear-gradient(to_right,#111827,#1D2635)]"
+            : "bg-[linear-gradient(90deg,rgba(219,222,227,1)_0%,rgba(243,244,246,1)_100%)]"
+        } rounded-4xl`}
+      >
         <div className="container px-24 h-full">
           <Slider {...settings}>
             {sliderInfo.map((el) => {
@@ -52,9 +58,25 @@ function Hero() {
                 <div key={el.id} className="">
                   <div className="relative px-2 flex justify-between h-[500px]">
                     <div className="h-full flex flex-col gap-2 font-bold justify-center">
-                      <p className="text-2xl">Beats Solo</p>
-                      <h1 className="text-7xl">{el.type}</h1>
-                      <h1 className="text-[150px] text-white uppercase">
+                      <p
+                        className={`text-2xl ${
+                          isDark ? "text-white" : "text-black"
+                        } `}
+                      >
+                        Beats Solo
+                      </p>
+                      <h1
+                        className={`text-7xl ${
+                          isDark ? "text-white" : "text-black"
+                        } `}
+                      >
+                        {el.type}
+                      </h1>
+                      <h1
+                        className={`text-[150px] ${
+                          isDark ? "text-blue-light" : "text-white"
+                        } uppercase`}
+                      >
                         {el.title}
                       </h1>
                       <button className="w-max px-6 py-2 rounded-full bg-primary text-white font-normal hover:cursor-pointer hover:scale-105 duration-300">

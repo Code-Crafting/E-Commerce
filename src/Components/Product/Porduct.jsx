@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CategoryListShrimmer from "../Shrimmer/CategoryListShrimmer";
 import ProductsShrimmer from "../Shrimmer/ProductsShrimmer";
 import { addCommaToINR, convertToINR } from "../../functions";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { createPortal } from "react-dom";
+import { Theme } from "../../Contexts/Theme";
 
 function Product({ setItemsDetails, itemDetails }) {
   const [categoryName, setCategoryName] = useState("products");
   const [productsData, setProductsData] = useState(null);
   const [categoryList, setCategoryList] = useState(null);
+  const [isDark] = useContext(Theme);
 
   //   categories list
   useEffect(() => {
@@ -57,7 +59,7 @@ function Product({ setItemsDetails, itemDetails }) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: `${isDark ? "dark" : "light"}`,
       transition: Bounce,
     };
     if (isAdded) {
@@ -68,124 +70,143 @@ function Product({ setItemsDetails, itemDetails }) {
   };
 
   return (
-    <div className="con min-h-dvh py-24">
-      {/* categories */}
-      <div className="flex gap-4 overflow-x-scroll no-scrollbar">
-        <div
-          className={`capitalize grid place-items-center min-w-[180px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
-            categoryName === "products"
-              ? "text-primary bg-white border boder-primary"
-              : "bg-primary text-white"
-          } transition-all duration-150`}
-          onClick={() => setCategoryName("products")}
-        >
-          all
-        </div>
-        {categoryList ? (
-          categoryList.map((el, i) => (
-            <div
-              className={`capitalize grid place-items-center min-w-[180px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
-                categoryName === el
-                  ? "text-primary bg-white border boder-primary"
-                  : "bg-primary text-white"
-              } transition-all duration-150`}
-              key={i}
-              onClick={() => setCategoryName(el)}
-            >
-              {el.split("-").join(" ")}
-            </div>
-          ))
-        ) : (
-          <>
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-            <CategoryListShrimmer />
-          </>
-        )}
-      </div>
-
-      {/* show products */}
-      <div className="mt-12 grid grid-cols-5 gap-4">
-        {productsData ? (
-          productsData.map((el) => {
-            const { id, title, brand, images, price, rating } = el;
-            return (
+    <div className={`${isDark ? "bg-primary-dark " : "bg-white"}`}>
+      <div className="con min-h-dvh py-24">
+        {/* categories */}
+        <div className="flex gap-4 overflow-x-scroll no-scrollbar">
+          <div
+            className={`capitalize grid place-items-center min-w-[180px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
+              categoryName === "products"
+                ? isDark
+                  ? "bg-gray-500 text-blue-light border border-gray-500"
+                  : "text-primary bg-white border boder-primary"
+                : isDark
+                ? "bg-blue-light text-gray-500"
+                : "bg-primary text-white"
+            } 
+             transition-all duration-150`}
+            onClick={() => setCategoryName("products")}
+          >
+            all
+          </div>
+          {categoryList ? (
+            categoryList.map((el, i) => (
               <div
-                className="w-full  flex flex-col justify-between pb-4 rounded-xl overflow-hidden border border-gray-400"
-                key={id}
-                id={id}
+                className={`capitalize grid place-items-center min-w-[180px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
+                  categoryName === el
+                    ? isDark
+                      ? "bg-gray-500 text-blue-light border border-gray-500"
+                      : "text-primary bg-white border boder-primary"
+                    : isDark
+                    ? "bg-blue-light text-gray-500"
+                    : "bg-primary text-white"
+                } transition-all duration-150`}
+                key={i}
+                onClick={() => setCategoryName(el)}
               >
-                <div className="bg-gray-200">
-                  <img src={images[0]} alt="productImg" />
-                </div>
+                {el.split("-").join(" ")}
+              </div>
+            ))
+          ) : (
+            <>
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+              <CategoryListShrimmer />
+            </>
+          )}
+        </div>
 
-                <div className="mt-4 flex flex-col gap-2 px-2 justify-between">
-                  <h1 className="text-xl font-semibold">{title}</h1>
-                  <p className="text-lg">{brand}</p>
-                  <p className="text-lg">
-                    ₹{addCommaToINR(convertToINR(price))}
-                  </p>
-                  <div className="flex gap-2 items-center">
-                    <i class="fa-solid fa-star text-yellow text-xl text-shadow-md/30"></i>
-                    <p className="text-lg">{rating}/5</p>
+        {/* show products */}
+        <div className="mt-12 grid grid-cols-5 gap-4">
+          {productsData ? (
+            productsData.map((el) => {
+              const { id, title, brand, images, price, rating } = el;
+              return (
+                <div
+                  className={`w-full  flex flex-col justify-between pb-4 rounded-xl overflow-hidden border  ${
+                    isDark
+                      ? "bg-footer border-footer text-gray-400"
+                      : "border-gray-400 text-black"
+                  }`}
+                  key={id}
+                  id={id}
+                >
+                  <div
+                    className={`${isDark ? "bg-blue-light" : "bg-gray-200"}`}
+                  >
+                    <img src={images[0]} alt="productImg" />
+                  </div>
+
+                  <div
+                    className={`mt-4 flex flex-col gap-2 px-2 justify-between `}
+                  >
+                    <h1 className="text-xl font-semibold">{title}</h1>
+                    <p className="text-lg">{brand}</p>
+                    <p className="text-lg">
+                      ₹{addCommaToINR(convertToINR(price))}
+                    </p>
+                    <div className="flex gap-2 items-center">
+                      <i className="fa-solid fa-star text-yellow text-xl text-shadow-md/30"></i>
+                      <p className="text-lg">{rating}/5</p>
+                    </div>
+                  </div>
+
+                  <div
+                    className="w-max mt-2 ml-2 px-4 py-2 bg-primary text-white font-semibold text-sm rounded-full hover:cursor-pointer hover:scale-105 duration-200"
+                    onClick={() => handleValidationAndToast(el)}
+                  >
+                    Add to Cart
                   </div>
                 </div>
+              );
+            })
+          ) : (
+            <>
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+              <ProductsShrimmer />
+            </>
+          )}
+        </div>
 
-                <div
-                  className="w-max mt-2 ml-2 px-4 py-2 bg-primary text-white font-semibold text-sm rounded-full hover:cursor-pointer hover:scale-105 duration-200"
-                  onClick={() => handleValidationAndToast(el)}
-                >
-                  Add to Cart
-                </div>
-              </div>
-            );
-          })
-        ) : (
-          <>
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-            <ProductsShrimmer />
-          </>
+        {/* toast */}
+        {createPortal(
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover={false}
+            theme={`${isDark ? "dark" : "light"}`}
+            transition={Bounce}
+          />,
+          document.getElementById("portal")
         )}
       </div>
-
-      {/* toast */}
-      {createPortal(
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover={false}
-          theme="light"
-          transition={Bounce}
-        />,
-        document.getElementById("portal")
-      )}
     </div>
   );
 }

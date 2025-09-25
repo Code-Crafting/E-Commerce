@@ -3,16 +3,20 @@ import Category from "./Category";
 import Facitily from "./Facility";
 import OfferNews from "./OfferNews";
 import Brand from "./Brand";
+import { useContext } from "react";
+import { Theme } from "../../Contexts/Theme";
 
 function Home() {
+  const [isDark, setIsDark] = useContext(Theme);
+
   return (
-    <>
-      <Hero />
+    <div className={`${isDark ? "bg-primary-dark" : "bg-white"}`}>
+      <Hero isDark={isDark} />
       <Category />
-      <Facitily />
+      <Facitily isDark={isDark} />
       <OfferNews />
-      <Brand />
-    </>
+      <Brand isDark={isDark} />
+    </div>
   );
 }
 
