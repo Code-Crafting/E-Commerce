@@ -6,7 +6,7 @@ function CategoryListShrimmer() {
 
   return (
     <div
-      className={`min-w-[180px] h-[45px] rounded-full ${
+      className={`sm:min-w-[180px] 420px:min-w-[150px] min-w-[120px] 512px:h-[45px] h-[35px] rounded-full ${
         isDark ? "bg-blue-light" : "bg-gray-300"
       }`}
     ></div>
