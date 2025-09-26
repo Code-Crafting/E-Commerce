@@ -10,7 +10,8 @@ The app comes with a clean, user-friendly interface and supports both light and 
 - **Responsive Design** — Works seamlessly across all devices.  
 - **Category-wise Product Listing** — Easily browse products by categories (go to Shop).  
 - **Product Details** — View product information with images, prices, and descriptions.  
-- **Add-to-Cart Functionality** — View added items in the shopping cart with delete functionality.  
+- **Add-to-Cart Functionality** — View added items in the shopping cart with delete functionality.
+- **Persistent Cart and Theme** — Cart items and Theme are stored in **localStorage** so they remain even after page refresh. 
 - **Dynamic Cart Calculation** — Real-time updates for the total cart amount.  
 - **Toast Notifications** — Alerts using React-Toastify for better user interaction.  
 - **Dark/Light Theme Support** — Toggle themes to suit user preferences.  
