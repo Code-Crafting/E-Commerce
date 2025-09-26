@@ -12,19 +12,19 @@ function CartProducts({ itemDetails, setItemsDetails, isDark }) {
       {itemDetails.map((el) => {
         const { id, title, brand, images, price } = el;
         return (
-          <div className="flex justify-between items-center" key={id}>
+          <div className="flex justify-between items-center gap-2" key={id}>
             {/* basic details  */}
             <div className="mt-4 flex items-center gap-2 ">
               <img
                 src={images}
                 alt="img"
-                className="w-[80px] bg-gray-200 rounded-2xl"
+                className="512px:w-[80px] w-[50px] bg-gray-200 512px:rounded-2xl rounded-md"
               />
               <div>
                 <h1
                   className={`${
                     isDark ? "text-gray-200" : "text-black"
-                  } text-lg`}
+                  } 512px:text-lg text-sm`}
                 >
                   {title}
                 </h1>
@@ -32,16 +32,16 @@ function CartProducts({ itemDetails, setItemsDetails, isDark }) {
               </div>
             </div>
             {/* price */}
-            <div className="flex gap-4 items-center">
+            <div className="flex 512px:gap-4 gap-1 items-center">
               <h1
-                className={`text-xl font-semibold ${
+                className={`512px:text-xl text-md font-semibold ${
                   isDark ? "text-gray-300" : "text-black"
                 }`}
               >
                 ₹{addCommaToINR(convertToINR(price))}
               </h1>
               <i
-                className="fa-solid fa-trash text-primary hover:cursor-pointer"
+                className="fa-solid fa-trash text-primary hover:cursor-pointer 512px:text-lg text-[12px]"
                 onClick={() => {
                   const filteredItems = itemDetails.filter(
                     (el) => el.id !== id
@@ -59,7 +59,11 @@ function CartProducts({ itemDetails, setItemsDetails, isDark }) {
       })}
       <hr className="text-gray-500 my-4" />
       <div className="text-right">
-        <h1 className={`text-2xl ${isDark ? "text-gray-300" : "text-black"}`}>
+        <h1
+          className={`512px:text-2xl text-lg ${
+            isDark ? "text-gray-300" : "text-black"
+          }`}
+        >
           Total -
           <span className="font-semibold pl-2">
             ₹{addCommaToINR(calculateTotal(itemDetails))}
@@ -68,9 +72,13 @@ function CartProducts({ itemDetails, setItemsDetails, isDark }) {
       </div>
     </>
   ) : (
-    <div className="w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       <DotLottieReact
-        src="https://lottie.host/a36153b7-adc9-4976-be94-a164f860a6bc/9Xoe3UjzEY.lottie"
+        src={`${
+          isDark
+            ? "https://lottie.host/bfe535f1-9ee8-45b7-9aeb-1c72f118b28a/dL04DoLYDD.lottie"
+            : "https://lottie.host/a36153b7-adc9-4976-be94-a164f860a6bc/9Xoe3UjzEY.lottie"
+        }`}
         loop
         autoplay
       />

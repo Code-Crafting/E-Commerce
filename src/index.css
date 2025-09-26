@@ -15,6 +15,7 @@
   --color-lightBlue: #74aff8;
   --color-yellow: #fdc733;
   --color-lightYellow: #fede86;
+  --color-sidebar: #f5f5f5;
 
   /* dark */
   --color-primary-dark: #111827;
@@ -22,9 +23,31 @@
   --color-footer: #030712;
   --color-dropdown-list: #3f1c2a;
 
+  /* shadow */
   --shadow-navbar: rgba(0, 0, 0, 0.24) 0px 2px 8px;
+
+  /* breakpoint */
+  --breakpoint-1424px: 1424px;
+  --breakpoint-928px: 928px;
+  --breakpoint-420px: 420px;
+  --breakpoint-512px: 512px;
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.sidebar {
+  flex-direction: column;
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 16rem;
+  min-height: 20rem;
+  background-color: var(--color-sidebar);
+  padding: 1.5rem 2rem;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-navbar);
+  border-radius: 10px;
+  gap: 14px;
 }

@@ -28,19 +28,23 @@ function Facitily({ isDark }) {
   ];
 
   return (
-    <div className="con flex justify-between my-28 px-8">
+    <div className="con grid lg:grid-cols-4 grid-cols-2 place-items-start gap-6 lg:gap-0 xl:my-28 512px:my-24 my-20 px-8 sm:w-[90%] lg:w-full mx-auto">
       {data.map((el) => (
         <div key={el.id} className="flex gap-4 items-center">
-          <div className="text-primary text-5xl">{el.img}</div>
+          <div className="text-primary xl:text-5xl sm:text-3xl 420px:text-2xl text-lg">
+            {el.img}
+          </div>
           <div>
             <h1
-              className={`text-xl font-bold ${
+              className={`xl:text-xl sm:text-lg 420px:text-lg text-[12px] font-bold ${
                 isDark ? "text-white" : "text-black"
               }`}
             >
               {el.title}
             </h1>
-            <p className="text-gray-600">{el.subTitle}</p>
+            <p className="text-gray-600 sm:text-[12px] text-[10px]">
+              {el.subTitle}
+            </p>
           </div>
         </div>
       ))}

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 import Product from "./Components/Product/Porduct";
 import AddToCart from "./Components/AddToCart/AddToCart";
 import { useContext, useState } from "react";
@@ -22,29 +22,31 @@ function App() {
 
   return (
     <Theme.Provider value={[isDark, setIsDark]}>
-      <Navbar cartValue={itemDetails.length} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/products"
-          element={
-            <Product
-              setItemsDetails={setItemsDetails}
-              itemDetails={itemDetails}
-            />
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <AddToCart
-              itemDetails={itemDetails}
-              setItemsDetails={setItemsDetails}
-            />
-          }
-        />
-      </Routes>
-      <Footer />
+      <div className="">
+        <Navbar cartValue={itemDetails.length} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/products"
+            element={
+              <Product
+                setItemsDetails={setItemsDetails}
+                itemDetails={itemDetails}
+              />
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <AddToCart
+                itemDetails={itemDetails}
+                setItemsDetails={setItemsDetails}
+              />
+            }
+          />
+        </Routes>
+        <Footer />
+      </div>
     </Theme.Provider>
   );
 }

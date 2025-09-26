@@ -1,6 +1,6 @@
 function Logo() {
   return (
-    <h1 className="text-red-500 font-medium text-3xl hover:cursor-pointer">
+    <h1 className="text-red-500 font-medium 420px:text-3xl text-xl hover:cursor-pointer">
       ESHOP
     </h1>
   );

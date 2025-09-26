@@ -7,14 +7,16 @@ import br5 from "../../assets/brand/br-5.png";
 function Brand({ isDark }) {
   const brands = [br1, br2, br3, br4, br5];
   return (
-    <div className={`${isDark ? "bg-blue-light" : "bg-gray-200"} py-8 mt-28`}>
+    <div className={`${isDark ? "bg-blue-light" : "bg-gray-200"} py-8`}>
       <div className="con flex justify-evenly itmes-center">
         {brands.map((el, i) => (
           <img
             src={el}
             key={i}
             alt="brandImg"
-            className={`w-[70px] opacity-50 ${isDark ? "invert" : ""}`}
+            className={`sm:w-[70px] 420px:w-[50px] w-[35px] opacity-50 ${
+              isDark ? "invert" : ""
+            }`}
           />
         ))}
       </div>

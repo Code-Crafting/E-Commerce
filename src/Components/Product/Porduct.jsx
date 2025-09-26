@@ -71,11 +71,11 @@ function Product({ setItemsDetails, itemDetails }) {
 
   return (
     <div className={`${isDark ? "bg-primary-dark " : "bg-white"}`}>
-      <div className="con min-h-dvh py-24">
+      <div className="con min-h-dvh 412px:py-24 py-20">
         {/* categories */}
-        <div className="flex gap-4 overflow-x-scroll no-scrollbar">
+        <div className="flex  gap-4 overflow-x-scroll no-scrollbar xl:px-0 px-2 sm:text-[16px] text-[12px]">
           <div
-            className={`capitalize grid place-items-center min-w-[180px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
+            className={`capitalize grid place-items-center sm:min-w-[180px] 412px:min-w-[150px] min-w-[120px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
               categoryName === "products"
                 ? isDark
                   ? "bg-gray-500 text-blue-light border border-gray-500"
@@ -92,7 +92,7 @@ function Product({ setItemsDetails, itemDetails }) {
           {categoryList ? (
             categoryList.map((el, i) => (
               <div
-                className={`capitalize grid place-items-center min-w-[180px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
+                className={`capitalize grid place-items-center sm:min-w-[180px] 412px:min-w-[150px] min-w-[120px] rounded-full  512px:py-2 py-1 hover:cursor-pointer font-semibold ${
                   categoryName === el
                     ? isDark
                       ? "bg-gray-500 text-blue-light border border-gray-500"
@@ -125,7 +125,7 @@ function Product({ setItemsDetails, itemDetails }) {
         </div>
 
         {/* show products */}
-        <div className="mt-12 grid grid-cols-5 gap-4">
+        <div className="sm:mt-12 mt-8 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 512px:px-0 px-2">
           {productsData ? (
             productsData.map((el) => {
               const { id, title, brand, images, price, rating } = el;
@@ -142,7 +142,11 @@ function Product({ setItemsDetails, itemDetails }) {
                   <div
                     className={`${isDark ? "bg-blue-light" : "bg-gray-200"}`}
                   >
-                    <img src={images[0]} alt="productImg" />
+                    <img
+                      src={images[0]}
+                      alt="productImg"
+                      className="xl:w-auto w-[200px] mx-auto"
+                    />
                   </div>
 
                   <div
