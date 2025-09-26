@@ -1,12 +1,25 @@
-# React + Vite
+# E-Commerce Web App  
+A modern, responsive e-commerce web application designed for a smooth and interactive shopping experience.  
+It features **category-wise product listing**, a **dynamic cart system**, and **toast notifications** for real-time alerts when users perform actions like adding items to the cart.  
+The app comes with a clean, user-friendly interface and supports both light and dark themes for better accessibility.  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=vercel)](https://e-commerce-flame-sigma.vercel.app/)
 
-Currently, two official plugins are available:
+## 🚀 Features  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Responsive Design** — Works seamlessly across all devices.  
+- **Category-wise Product Listing** — Easily browse products by categories.  
+- **Product Details** — View product information with images, prices, and descriptions.  
+- **Add-to-Cart Functionality** — View added items in the shopping cart with delete functionality.  
+- **Dynamic Cart Calculation** — Real-time updates for the total cart amount.  
+- **Toast Notifications** — Alerts using React-Toastify for better user interaction.  
+- **Dark/Light Theme Support** — Toggle themes to suit user preferences.  
+- **Smooth Navigation** — Fast and intuitive routing between pages.  
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** ReactJS, Tailwind CSS  
+- **Routing:** React Router   
+- **Deployment:** Vercel  
+
+
