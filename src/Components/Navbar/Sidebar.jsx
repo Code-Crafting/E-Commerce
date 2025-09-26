@@ -5,7 +5,7 @@ function Sidebar({ showSidebar, setShowSidebar, menuLinks, isDark }) {
     <div
       className={`${
         showSidebar ? "flex" : "hidden"
-      } 928px:hidden  flex-col absolute top-6 left-0 ${
+      } 928px:hidden  flex-col absolute top-2 left-0 ${
         isDark ? "bg-primary-dark" : "bg-sidebar"
       } w-3xs h-[250px] px-4 py-4 rounded-lg shadow-navbar z-12 `}
     >

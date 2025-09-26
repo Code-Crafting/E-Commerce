@@ -41,7 +41,9 @@ function Navbar({ cartValue }) {
             ></i>
           </div>
 
-          <Logo />
+          <Link to={"/"}>
+            <Logo />
+          </Link>
 
           {/* menu */}
           <ul
@@ -71,7 +73,7 @@ function Navbar({ cartValue }) {
             <input
               type="text"
               placeholder="Search..."
-              className={`absolute -top-[2px] -right-3  group-hover:border group-hover: border-gray-500 outline-none group-hover:px-4 w-0  sm:group-hover:w-[250px] 512px:group-hover:w-[200px] 412px:group-hover:w-[150px] group-hover:w-[100px] h-[30px] rounded-full transition-all duration-250 z-0  ${
+              className={`absolute -top-[2px] -right-3  group-hover:border group-hover:border-gray-500 outline-none group-hover:px-4 w-0 sm:group-hover:w-[250px] 512px:group-hover:w-[200px] 412px:group-hover:w-[150px] group-hover:w-[100px] h-[30px] rounded-full transition-all duration-250 z-0  ${
                 isDark ? "bg-blue-light" : ""
               } 412px:text-[16px] text-[12px] 412px:placeholder:text-[16px] placeholder:text-[12px]`}
             />
