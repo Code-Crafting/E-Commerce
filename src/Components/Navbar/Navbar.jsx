@@ -35,7 +35,7 @@ function Navbar({ cartValue }) {
             onClick={() => setShowSidebar(true)}
           >
             <i
-              class={`fa-solid fa-bars text-2xl ${
+              className={`fa-solid fa-bars text-2xl ${
                 isDark ? "text-gray-600" : "text-gray-400"
               } text-[16px] 420px:text-xl`}
             ></i>

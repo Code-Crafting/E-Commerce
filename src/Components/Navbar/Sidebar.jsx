@@ -13,7 +13,7 @@ function Sidebar({ showSidebar, setShowSidebar, menuLinks, isDark }) {
         className="928px:hidden block text-right text-primary"
         onClick={() => setShowSidebar(false)}
       >
-        <i class="fa-solid fa-circle-xmark text-3xl text-shadow-md"></i>
+        <i className="fa-solid fa-circle-xmark text-3xl text-shadow-md"></i>
       </div>
 
       <ul

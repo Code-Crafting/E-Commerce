@@ -71,11 +71,11 @@ function Product({ setItemsDetails, itemDetails }) {
 
   return (
     <div className={`${isDark ? "bg-primary-dark " : "bg-white"}`}>
-      <div className="con min-h-dvh 412px:py-24 py-20">
+      <div className="con min-h-dvh 420px:py-24 py-20">
         {/* categories */}
         <div className="flex  gap-4 overflow-x-scroll no-scrollbar xl:px-0 px-2 sm:text-[16px] text-[12px]">
           <div
-            className={`capitalize grid place-items-center sm:min-w-[180px] 412px:min-w-[150px] min-w-[120px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
+            className={`capitalize grid place-items-center sm:min-w-[180px] 420px:min-w-[150px] min-w-[120px] rounded-full  py-2 hover:cursor-pointer font-semibold ${
               categoryName === "products"
                 ? isDark
                   ? "bg-gray-500 text-blue-light border border-gray-500"
@@ -92,7 +92,7 @@ function Product({ setItemsDetails, itemDetails }) {
           {categoryList ? (
             categoryList.map((el, i) => (
               <div
-                className={`capitalize grid place-items-center sm:min-w-[180px] 412px:min-w-[150px] min-w-[120px] rounded-full  512px:py-2 py-1 hover:cursor-pointer font-semibold ${
+                className={`capitalize grid place-items-center sm:min-w-[180px] 420px:min-w-[150px] min-w-[120px] rounded-full  512px:py-2 py-1 hover:cursor-pointer font-semibold ${
                   categoryName === el
                     ? isDark
                       ? "bg-gray-500 text-blue-light border border-gray-500"
